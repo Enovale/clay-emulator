@@ -26,10 +26,9 @@
     // Check if we dealing with a base64 encoded URI
     if (data && data.charAt(0) !== '<') {
       data = window.atob(data).replace('$$RETURN_TO$$', returnTo);
-	  var wrapper= document.createElement('div');
-	  wrapper.innerHTML= window.btoa(data);
-	  var div= wrapper.firstChild;
-      document.write(div);
+	  document.open();
+	  document.write(window.btoa(data));
+	  document.close();
     } else if (data) {
       data = data.replace('$$RETURN_TO$$', returnTo);
 	  console.log(data);
