@@ -5,6 +5,11 @@
     <title>Config Page Emulator</title>
   </head>
   <script>
+  function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
     function getQueryParam(variable, defaultValue) {
       var query = location.search.substring(1);
       var vars = query.split('&');
@@ -36,11 +41,11 @@
 	  document.write(data);
 	  document.close();
     }
-	
+	removeElement("configBtn");
     }
 	configure();
   </script>
   <body>
-    <button onclick="configure()">Start Configuring</button>
+    <button id="configBtn" onclick="configure()">Start Configuring</button>
   </body>
 </html>
